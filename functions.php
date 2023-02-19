@@ -4,13 +4,13 @@
  * 
  * @package mytheme2
  */
-// echo '<pre>';
+//  echo '<pre>';
 
 
-// print_r(filemtime(get_template_directory().'/style.css') );
+//  print_r(filemtime(get_template_directory().'/style.css'));
 
 
-// wp_die();
+//  wp_die();
  function mytheme2_enqueue_style (){
     //registring styles
 wp_register_style('mytheme2_style',  get_stylesheet_uri(), [], filemtime(get_template_directory().'/style.css'), 'all' );
@@ -29,6 +29,7 @@ wp_enqueue_script('main-js');
     wp_enqueue_script('bootstrap-js');
 }
 add_action('wp_enqueue_scripts', 'mytheme2_enqueue_style');
+
 
 
 

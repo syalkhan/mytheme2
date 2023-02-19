@@ -5,7 +5,10 @@
  * @pakage mytheme2
  */
 ?>
-<footer> footer</footer>
+<footer> </footer>
+</div>
+</div>
    <?php wp_footer(); ?>
+   
    </body>
    </html>
