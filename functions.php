@@ -4,10 +4,20 @@
  * 
  * @package mytheme2
  */
+if( ! defined( 'MYTHEME2_DIR_PATH' ) ) {
+        define( 'MYTHEME2_DIR_PATH', untrailingslashit( get_template_directory()));
+
+        
+}
+require_once MYTHEME2_DIR_PATH . '/inc/helpers/autoloader.php';
+function mytheme2_get_theme_instance(){
+    \mytheme2\Inc\MYTHEME2::get_instance();
+}
+mytheme2_get_theme_instance();
 //  echo '<pre>';
 
 
-//  print_r(filemtime(get_template_directory().'/style.css'));
+//  print_r(MYTHEME2_DIR_PATH);
 
 
 //  wp_die();
