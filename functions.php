@@ -11,7 +11,7 @@ if( ! defined( 'MYTHEME2_DIR_PATH' ) ) {
 }
 require_once MYTHEME2_DIR_PATH . '/inc/helpers/autoloader.php';
 function mytheme2_get_theme_instance(){
-    \mytheme2\Inc\MYTHEME2::get_instance();
+    \MYTHEME2\Inc\MYTHEME2::get_instance();
 }
 mytheme2_get_theme_instance();
 //  echo '<pre>';
