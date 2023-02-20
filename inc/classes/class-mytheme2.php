@@ -12,12 +12,15 @@
     use Singleton;
 
     protected function __construct() {
-        wp_die('hello');
-        //load class.
-        $this-> set_hooks(); 
+        // LOAD CLASS
+        Assets::get_instance();
+        $this-> setup_hooks(); 
     }
 
-    protected function set_hooks(){
-        // actions and filters
+    protected function setup_hooks(){
+        /**
+         * Actions.
+         */
+
     }
  }
