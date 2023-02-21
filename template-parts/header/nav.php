@@ -1,10 +1,15 @@
 <?php 
+
 /**
  * navigation header template
  * 
  * @pakage mytheme2
  */
 
+
+
+$menu_class = \mytheme2\Inc\Menus::get_instance();
+$menu_class->get_menu_id ( 'mytheme2-header-menu' );
 
 
 ?>
@@ -33,7 +38,7 @@
   </div>
 </nav>
 
-<?php 
+<!-- <?php 
 wp_nav_menu(
   [ 
     'theme_location' => 'mytheme2-header-menu',
@@ -41,4 +46,4 @@ wp_nav_menu(
   ]
 );
 
-?>
+?> -->

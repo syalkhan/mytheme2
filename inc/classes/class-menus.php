@@ -32,4 +32,16 @@
           ]
          );
        }
+       
+
+       // Function for getting the location of the menus
+
+       public function get_menu_id( $location ){
+        // Get all the locations.
+        $locations = get_nav_menu_locations();
+        echo '<pre>';
+        print_r( $locations );
+        wp_die();
+       }
+
  }
