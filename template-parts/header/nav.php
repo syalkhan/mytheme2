@@ -13,9 +13,7 @@ $header_menu_id = $menu_class->get_menu_id ( 'mytheme2-header-menu' );
 
 $header_menus = wp_get_nav_menu_items( $header_menu_id );
 
-echo '<pre>';
-print_r($header_menus);
-wp_die();
+
 
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -25,30 +23,61 @@ wp_die();
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-  </div>
-</nav>
 
-<!-- <?php 
-wp_nav_menu(
-  [ 
-    'theme_location' => 'mytheme2-header-menu',
-    'container_class' => 'my_extra_menu_class'
-  ]
-);
 
-?> -->
+    <?php
+    if ( !empty( $header_menus) && is_array( $header_menus) ){
+    ?>
+  <ul class="navbar-nav mr-auto">
+
+  <?php
+  foreach ( $header_menus as $menu_item ){
+    if ( ! $menu_item->menu_item_parent ){
+      $child_menu_items = $menu_class->get_child_menu_items( $header_menus, $menu_item->ID );
+      $has_children = ! empty( $child_menu_items ) && is_array( $child_menu_items);
+      if( ! $has_children ){
+        ?>
+        <li class="nav-item">
+        <a class="nav-link" href="<?php echo esc_url( $menu_item->url );?>">
+      <?php echo esc_html( $menu_item->title); ?>
+      </a>
+      </li>
+      <?php 
+      }else{
+        ?>
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="<?php echo esc_url( $menu_item->url); ?>" id="navbarDropdown" role="button" data-toggle="dropdown">
+        <?php echo esc_html( $menu_item->title);
+        ?>
+        
+      </a> 
+
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<?php 
+foreach( $child_menu_items as $child_menu_items){
+?>
+<a class="dropdown-item" href="<?php echo esc_url( $child_menu_items->url );?>">
+<?php echo esc_html( $child_menu_items->title);
+?>
+</a>
+<?php
+}
+
+?>
+
+</div>
+      </li>
+
+    <?php
+      }
+
+      ?>
+      <?php
+    }
+  }
+    }
+    ?>
+   </nav>
