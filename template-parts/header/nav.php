@@ -17,7 +17,8 @@ $header_menus = wp_get_nav_menu_items( $header_menu_id );
 
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
- <?php if ( function_exists( 'the_custom_logo' ) ) {
+<div class="container">
+<?php if ( function_exists( 'the_custom_logo' ) ) {
   the_custom_logo();
  }?>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,4 +81,5 @@ foreach( $child_menu_items as $child_menu_items){
   }
     }
     ?>
+</div>
    </nav>
