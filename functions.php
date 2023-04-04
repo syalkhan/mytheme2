@@ -13,6 +13,8 @@ if( ! defined( 'MYTHEME2_DIR_URI' ) ) {
 
 }
 require_once MYTHEME2_DIR_PATH . '/inc/helpers/autoloader.php';
+require_once MYTHEME2_DIR_PATH . '/inc/helpers/template-tags.php';
+
 function mytheme2_get_theme_instance(){
     \MYTHEME2\Inc\MYTHEME2::get_instance();
 }
